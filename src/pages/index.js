@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .join("&")
 }
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -30,10 +30,16 @@ export default class IndexPage extends React.Component {
         "form-name": form.getAttribute("name"),
         ...this.state,
       }),
+    }).then(res => {
+      console.log(res)
+      this.setState({ name: "", email: "", message: "" })
     })
   }
 
   render() {
+
+    const { name, email, message } = this.state
+
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -51,21 +57,21 @@ export default class IndexPage extends React.Component {
               <label>
                 Your name:
                 <br />
-                <input type="text" name="name" onChange={this.handleChange} />
+                <input type="text" name="name" onChange={this.handleChange} value={name} />
               </label>
             </p>
             <p>
               <label>
                 Your email:
                 <br />
-                <input type="email" name="email" onChange={this.handleChange} />
+                <input type="email" name="email" onChange={this.handleChange} value={email} />
               </label>
             </p>
             <p>
               <label>
                 Message:
                 <br />
-                <textarea name="message" onChange={this.handleChange} />
+                <textarea name="message" onChange={this.handleChange} value={message} />
               </label>
             </p>
             <button type="submit">Submit</button>

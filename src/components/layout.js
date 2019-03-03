@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -36,9 +35,21 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <div>All rights reserved - Byrne Audio</div>
+            <div className="contact-icons">
+              <a href="http://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-twitter fa-lg" />
+              </a>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-youtube fa-lg" />
+              </a>
+              <a href="https://www.linkedin.com/in/seanmfox" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin fa-lg" />
+              </a>
+              <a href="https://www.facebook.com/Byrne-Audio-1518750408258548/" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-facebook fa-lg" />
+              </a>
+            </div>
           </footer>
         </div>
       </>

@@ -1,0 +1,90 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../images/background-texture.jpg");
+  color: #999999;
+  background-position: center;
+}
+
+.heading-text {
+  margin: 0 auto;
+  max-width: 960px;
+  color: #999999;
+  text-align: center;
+}
+
+.heading-name {
+  font-family: "Monoton", cursive;
+  margin: 0;
+  font-size: 60px;
+  line-height: 60px;
+}
+
+footer {
+  text-align: center;
+}
+
+.contact-icons {
+  margin-top: 20px;
+}
+
+.fab {
+  margin: 0 20px;
+  color: #999999;
+}
+
+.hamburger {
+  color: #999999;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+}
+
+.nav-link {
+  margin-top: 10px;
+}
+
+.nav-link a {
+  color: #999999;
+  text-decoration: none;
+}
+
+.open {
+  display: block;
+}
+
+main {
+  padding: 20px;
+  background: black;
+}
+
+section h2 {
+  color: #29cc00;
+  font-family: "Neuton", serif;
+}
+
+.client-details,
+.about-desc {
+  color: white;
+  font-size: 12px;
+}
+
+footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -1,9 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Image from "../components/image"
+import ContactForm from "../components/ContactForm"
 
 function encode(data) {
   return Object.keys(data)
@@ -13,11 +12,21 @@ function encode(data) {
 export default class IndexPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      checkedItems: new Map(),
+    }
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleCheckboxChange = e => {
+    const item = e.target.name
+    const isChecked = e.target.checked
+    this.setState(prevState => ({
+      checkedItems: prevState.checkedItems.set(item, isChecked),
+    }))
   }
 
   handleSubmit = e => {
@@ -31,54 +40,61 @@ export default class IndexPage extends React.Component {
         ...this.state,
       }),
     }).then(res => {
-      console.log(res)
-      this.setState({ name: "", email: "", message: "" })
+      this.setState({ name: "", email: "" })
     })
   }
 
   render() {
 
-    const { name, email, message } = this.state
-
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <h1>Hi Vincent</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-          <form
-            name="contact"
-            method="post"
-            data-netlify="true"
-            onSubmit={this.handleSubmit}
-          >
-            <p>
-              <label>
-                Your name:
-                <br />
-                <input type="text" name="name" onChange={this.handleChange} value={name} />
-              </label>
+        <Image />
+        <div>
+          <section className="about">
+            <h2>About</h2>
+            <p className="about-desc">
+              Byrne Audio is your all encompasing recording and live sound
+              company located in the Pittsburgh area. We specialize in making
+              you sound your best through the arts of live sound, recording, and
+              mixing. Byrne Audio is owned and opperated by Vince Byrne. Vince
+              has been in the recording and live sound industry for 5 years.
+              With a bachlor of science from California University of PA in
+              Commercial Music Technology, he guarentees absloute satisfaction
+              for you, the client.
             </p>
+          </section>
+          <section>
+            <h2>Current Clients</h2>
+            <div>
+              <div className="client-details">
+                <h3>Godson of Majestic Muzic:</h3>
+                <p>
+                  Godson is an inspirational Hip Hop artist with a vision of
+                  ridding the world of hatred and violence. Be sure to check out
+                  some of his music in the Music tab.
+                </p>
+              </div>
+              <div className="client-details">
+                <h3>Di'onna</h3>
+                <p>
+                  Di'onna is a seasoned R&B artist. She specializes in
+                  powerhouse vocals and that classic "big" sound. Be sure to
+                  check out some of her music in the Music tab.
+                </p>
+              </div>
+            </div>
+          </section>
+          <hr />
+          <section>
+            <h2>Quote Request Form</h2>
             <p>
-              <label>
-                Your email:
-                <br />
-                <input type="email" name="email" onChange={this.handleChange} value={email} />
-              </label>
+              Fill this out if you'd like a quote for your project. For general
+              questions, email ...
             </p>
-            <p>
-              <label>
-                Message:
-                <br />
-                <textarea name="message" onChange={this.handleChange} value={message} />
-              </label>
-            </p>
-            <button type="submit">Submit</button>
-          </form>
-          <Image />
+            <ContactForm />
+          </section>
         </div>
-        <Link to="/page-2/">Go to page 2</Link>
       </Layout>
     )
   }

@@ -85,7 +85,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         crossOrigin="anonymous"
       />
       <link
-        href="https://fonts.googleapis.com/css?family=Monoton|Neuton:200"
+        href="https://fonts.googleapis.com/css?family=Monoton|Neuton:200|Open+Sans"
         rel="stylesheet"
       />
     </Helmet>

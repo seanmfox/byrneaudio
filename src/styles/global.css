@@ -7,9 +7,11 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("../images/background-texture.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/background-texture.jpg");
   color: #999999;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .heading-text {
@@ -64,12 +66,23 @@ ul {
   text-decoration: none;
 }
 
+.current-route {
+  text-decoration: underline;
+}
+
 .open {
   display: block;
 }
 
-main {
+main,
+header {
+  margin: 0 auto;
+  max-width: 960px;
   padding: 20px;
+  margin: 20px;
+}
+
+main {
   background: black;
 }
 
@@ -87,4 +100,87 @@ section h2 {
 footer {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: right;
+    border-bottom: solid 4px #00b2b3;
+  }
+  
+  .nav-link {
+    margin: 0;
+    padding: 10px;
+    border: solid 4px #00b2b3;
+    background: black;
+  }
+
+  .current-route {
+    text-decoration: none;
+  }
+
+  .current-route a {
+    color: #00b2b3;
+  }
+
+  header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .main-image {
+    height: 200px;
+  }
+
+  main {
+    background: none;
+  }
+
+  .about-desc,
+  .client-container,
+  .form-container {
+    background: #f2f2f2;
+    color: black;
+    padding: 30px 20px 20px 20px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    margin-left: 15px;
+    margin-top: -6px;
+  }
+
+  .client-details {
+    color: black;
+  }
+
+  .triangle {
+    position: absolute;
+    width: 550px;
+    height: 4px;
+    border-bottom: 50px solid black;
+    border-right: 50px solid transparent;
+    margin-top: 23px;
+  }
+
+  section h2 {
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 50px;
+    padding-top: 33px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #app {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .triangle {
+    width: 700px;
+  }
 }

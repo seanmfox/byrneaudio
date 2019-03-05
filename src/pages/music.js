@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 export default class Music extends Component {
   render() {
     return (
-      <Layout>
+      <Layout location="/music">
         <SEO title="Music" keywords={[`gatsby`, `application`, `react`]} />
       </Layout>
     )

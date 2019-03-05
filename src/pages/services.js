@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 export default class Services extends Component {
   render() {
     return (
-      <Layout>
+      <Layout location="/services">
         <SEO title="Services" keywords={[`gatsby`, `application`, `react`]} />
       </Layout>
     )

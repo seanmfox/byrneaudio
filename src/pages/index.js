@@ -45,13 +45,13 @@ export default class IndexPage extends React.Component {
   }
 
   render() {
-
     return (
-      <Layout>
+      <Layout location="/">
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <Image />
         <div>
           <section className="about">
+            <div className="triangle" />
             <h2>About</h2>
             <p className="about-desc">
               Byrne Audio is your all encompasing recording and live sound
@@ -64,9 +64,10 @@ export default class IndexPage extends React.Component {
               for you, the client.
             </p>
           </section>
-          <section>
+          <section className="clients">
+            <div className="triangle" />
             <h2>Current Clients</h2>
-            <div>
+            <div className="client-container">
               <div className="client-details">
                 <h3>Godson of Majestic Muzic:</h3>
                 <p>
@@ -85,14 +86,16 @@ export default class IndexPage extends React.Component {
               </div>
             </div>
           </section>
-          <hr />
-          <section>
+          <section className="contact-form-container">
+            <div className="triangle" />
             <h2>Quote Request Form</h2>
-            <p>
-              Fill this out if you'd like a quote for your project. For general
-              questions, email ...
-            </p>
-            <ContactForm />
+            <div className="form-container">
+              <p>
+                Fill this out if you'd like a quote for your project. For
+                general questions, email ...
+              </p>
+              <ContactForm />
+            </div>
           </section>
         </div>
       </Layout>

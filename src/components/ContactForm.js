@@ -8,7 +8,7 @@ function encode(data) {
 
 export default class ContactForm extends Component {
   state = {
-    checkedItems: new Map(),
+    checkedItems: [],
   }
 
   handleChange = e => {
@@ -18,9 +18,15 @@ export default class ContactForm extends Component {
   handleCheckboxChange = e => {
     const item = e.target.name
     const isChecked = e.target.checked
-    this.setState(prevState => ({
-      checkedItems: prevState.checkedItems.set(item, isChecked),
-    }))
+    if (isChecked) {
+      this.setState(prevState => ({
+        checkedItems: prevState.checkedItems.concat(item),
+      }))
+    } else {
+      this.setState(prevState => ({
+        checkedItems: prevState.checkedItems.filter(c => c !== item),
+      }))
+    }
   }
 
   handleSubmit = e => {
@@ -34,9 +40,14 @@ export default class ContactForm extends Component {
         ...this.state,
       }),
     }).then(res => {
-      this.setState({ name: "", email: "" })
+      this.state.checkedItems.forEach(box => {
+        let checkbox = document.querySelector(`input[name=${box}]`)
+        checkbox.checked = false
+      })
+      this.setState({ name: "", email: "", bandName: "", musicLocation: "", songs: "", date: "",  budget: "", details: "", checkedItems: [] })
     })
   }
+
   render() {
     const {
       name,

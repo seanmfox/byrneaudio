@@ -3,32 +3,49 @@ import React from "react"
 
 export default class Header extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isOpen: false,
     }
   }
 
   handleClick = () => {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       isOpen: !prevState.isOpen,
     }))
   }
 
   render() {
-    const {isOpen} = this.state
-
+    const { isOpen } = this.state
     return (
       <header>
         <nav>
           <div className="hamburger" onClick={this.handleClick}>
             <i className="fas fa-bars fa-2x" />
           </div>
-          <ul className={`menu ${isOpen ? 'open' : null}`}>
-            <li className="nav-link"><Link to="/">HOME</Link></li>
-            <li className="nav-link"><Link to="/music">MUSIC</Link></li>
-            <li className="nav-link"><Link to="/gallery">GALLERY</Link></li>
-            <li className="nav-link"><Link to="/services">SERVICES</Link></li>
+          <ul className={`menu ${isOpen ? "open" : null}`}>
+            <li
+              className={`nav-link ${
+                this.props.location === "/" ? "current-route" : null
+              }`}
+            >
+              <Link to="/">HOME</Link>
+            </li>
+            <li className={`nav-link ${
+                this.props.location === "/music" ? "current-route" : null
+              }`}>
+              <Link to="/music">MUSIC</Link>
+            </li>
+            <li className={`nav-link ${
+                this.props.location === "/gallery" ? "current-route" : null
+              }`}>
+              <Link to="/gallery">GALLERY</Link>
+            </li>
+            <li className={`nav-link ${
+                this.props.location === "/services" ? "current-route" : null
+              }`}>
+              <Link to="/services">SERVICES</Link>
+            </li>
           </ul>
         </nav>
         <div className="heading-text">
